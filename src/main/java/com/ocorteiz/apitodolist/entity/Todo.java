@@ -16,14 +16,10 @@ public class Todo {
     private Long id;
     @NotBlank(message = "campo nome não pode estar vao")
     private String nome;
-    @NotBlank(message = "campo descrição não pode estar vazio")
     private String descricao;
     @NotNull(message = "campo prioridade não pode ser nulo")
     private int prioridade;
     private boolean realizado = false;
-    @OneToMany(mappedBy = "todo", fetch = FetchType.EAGER)
-    private List<SubTodo> subtodo;
-
 
     public Todo(){}
 
@@ -74,11 +70,4 @@ public class Todo {
         this.realizado = true;
     }
 
-    public List<SubTodo> getSubtodo() {
-        return subtodo;
-    }
-
-    public void setSubtodo(List<SubTodo> subtodo) {
-        this.subtodo = subtodo;
-    }
 }

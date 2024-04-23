@@ -1,9 +1,7 @@
 package com.ocorteiz.apitodolist.service;
 
 import com.ocorteiz.apitodolist.entity.Todo;
-import com.ocorteiz.apitodolist.entity.TodoDTO;
 import com.ocorteiz.apitodolist.infra.HandleErrors;
-import com.ocorteiz.apitodolist.repository.SubTodoRepository;
 import com.ocorteiz.apitodolist.repository.TodoRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -13,17 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class TodoService {
 
     private final TodoRepository todoRepository;
-    private final SubTodoRepository subTodoRepository;
 
-    public TodoService(TodoRepository todoRepository, SubTodoRepository subTodoRepository) {
+
+    public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
-        this.subTodoRepository = subTodoRepository;
     }
 
     public ResponseEntity<List<Todo>> create(Todo todo){
